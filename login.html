@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Zero</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #111;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00bfff;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-buttons button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons button:hover {
+            background-color: #00bfff;
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff7eb3, #88e1f2);
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+
+        .login-form .forgot-password {
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        .login-form .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .image-gallery {
+            position: relative;
+            overflow: hidden;
+            height: 750px;
+        }
+
+        .image-gallery img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .image-gallery img.active {
+            opacity: 1;
+        }
+
+        .form-image {
+            display: block;
+            margin: 1 auto 20px;
+            width: 1000px;
+            height: 650px;
+            object-fit: fill;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="BuildWithin Logo">
+            <span>BuildWithin</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#software">Software</a>
+            <a href="#maestro">Maestro AI</a>
+            <a href="#discover">Discover</a>
+            <a href="#start">Start</a>
+        </nav>
+        <div class="header-buttons">
+            <button>Schedule a Demo</button>
+            <button>Log In</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero-title"></h1>
+        <div class="login-form">
+            <form action="http://localhost:8081/login" method="POST">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </form>
+            <img src="mission.jpg" alt="Login Illustration" class="form-image">
+            <img src="image1.jpg" alt="Login Illustration" class="form-image">
+            
+            
+            
+        </div>
+    </section>
+
+    <section class="image-gallery">
+        <img src="image1.jpg" alt="Phishing Example 1" class="active">
+        <img src="image2.jpg" alt="Phishing Example 2">
+        <img src="image3.jpg" alt="Phishing Example 3">
+    </section>
+
+    <script>
+        const images = document.querySelectorAll('.image-gallery img');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 3000);
+    </script>
+</body>
+</html>
